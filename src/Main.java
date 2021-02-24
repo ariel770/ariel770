@@ -11,15 +11,19 @@ public class Main {
 
         System.out.println("Enter a results of test ! ");
         Scanner scanner = new Scanner(System.in);
+        grade = scanner.nextInt();
         while(grade != -1){
-            grade = scanner.nextInt();
             total += grade ;
             students ++;
             System.out.println("The student #"+students +" has a "+ grade);
             System.out.println(" If you want to exit press -1  !");
+            grade = scanner.nextInt();
         }
-        int average = total/students;
-        System.out.println("The sum is  : "+ total + " for "+students+" students ,  so the avg is :  "+ average );
+        if(total != 0 ){
+
+            double  average = (double)total/students;
+            System.out.println("The sum is  : "+ total + " for "+students+" students ,  so the avg is :  "+ average );
+        }
 
     }
 }
