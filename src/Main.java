@@ -3,45 +3,15 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-         int aCount = 0 ;
-         int bCount = 0 ;
-         int cCount = 0 ;
-         int dCount = 0 ;
-         int fCount = 0 ;
-         int total = 0 ;
-         int countOfGrades = 0 ;
-         Scanner scanner = new Scanner(System.in);
-System.out.println("Enter the grades : the result has divided by letters ");
-        while(scanner.hasNext()){
+        AutoPolicy autoPolicy1 = new AutoPolicy("Toyota Camery",2020);
+        AutoPolicy autoPolicy2 = new AutoPolicy("Nissan  Altima",2010);
+        getTheAutoPolicyOfCars(autoPolicy1);
+        getTheAutoPolicyOfCars(autoPolicy2);
+    }
+    public static void getTheAutoPolicyOfCars(AutoPolicy autoPolicy ){
+        System.out.println(autoPolicy.getCompanyName());
+        System.out.println(autoPolicy.getModel());
+        System.out.println(autoPolicy.getFullCover());
 
-           int grade = scanner.nextInt();
-            total += grade;
-            ++countOfGrades;
-
-            switch (grade/10){
-
-             case 10 :
-             case 9 :
-                 break;
-             case 8 :
-                 bCount++;
-                 break;
-             case 7 :
-                 cCount++;
-                 break;
-             case 6 :
-                 dCount++;
-                 break;
-             default:
-                 fCount++;
-                 break;
-
-            }
-        }
-        System.out.println("A :" + aCount);
-        System.out.println("=====");
-        System.out.println("B :" + bCount);
-        System.out.println("C :" + cCount);
-        System.out.println("D :" + dCount);
     }
 }
