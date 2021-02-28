@@ -1,24 +1,25 @@
+import java.security.SecureRandom;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        // break - continue statement
 
-        int counter ;
-        for (counter = 0 ;counter<= 10 ;counter++){
-            if(counter==5)break;
-            System.out.println(counter);
-
+        System.out.println("Enter double numbers to test which is the higher  (separate by Enter ) : ");
+        Scanner scanner = new Scanner(System.in);
+        double one = scanner.nextDouble();
+        double tow = scanner.nextDouble();
+        double three = scanner.nextDouble();
+        double max =  maximum(one,tow,three);
+        System.out.println("The high number is : "+ max);
+    }
+    public static double maximum(double one ,double tow ,double three ) {
+        double maxValue = one;
+        if(tow > maxValue){
+            maxValue = tow;
+        }if (three  > maxValue){
+            maxValue = three;
         }
-        System.out.println("the iteration has stopped at number : " + counter);
-        for (int counter1 = 0 ;counter1<=10 ;counter1++){
-            if(counter1==5)continue;
-            System.out.println(counter1);
-
-        }
-        System.out.println("the iteration has skiped the 5 number");
-
-
+        return maxValue ;
     }
 }
