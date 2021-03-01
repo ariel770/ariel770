@@ -1,18 +1,16 @@
+import java.security.SecureRandom;
+
 public class Main {
 
     public static void main(String[] args) {
-        int ARRAY_LENGTH = 10;
-        int arr [] ={0,0,0,0,1,2,3,4,3,2,1,0 };
-
-        for(int counter =0 ; counter <arr.length ; counter++){
-            System.out.println(arr[counter]);
-            for(int est = 0 ;est < arr[counter];est++){
-                System.out.print("*");
-            }
-            System.out.println();
-
+        SecureRandom sr = new SecureRandom();
+        int[] frequency = new int[7];
+        for (int roll = 0; roll <= 6000000; roll++) {
+            ++frequency[sr.nextInt(6)+1];
         }
-
+        for (int show = 1;show<frequency.length;show++){
+           System.out.println(frequency[show]);
+        }
     }
 }
 
