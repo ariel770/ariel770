@@ -1,24 +1,19 @@
 import java.security.SecureRandom;
 
 public class Main {
-   static int  x =1 ;
 
     public static void main(String[] args) {
-    getInt();
-    getStaticInt();
-    getInt();
-    getStaticInt();
-    }
-    public static  void getInt(){
-        int x = 10;
-        x += 10 ;
-        System.out.println(x);
-    }
-    public static  void getStaticInt(){
 
-        System.out.println(x);
-        x= x*10;
-        System.out.println(x);
+        System.out.println( "The first result of square  is : " +square(2.2));
+        System.out.println("The second result of square  is : " + square(2));
+    }
+    public static double square(double sq){
+
+        return sq*sq;
+    }
+    public static int square(int sq){
+
+        return sq*sq;
     }
 
     }
