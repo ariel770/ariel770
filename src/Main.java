@@ -1,16 +1,17 @@
 import java.security.SecureRandom;
 
 public class Main {
-
     public static void main(String[] args) {
+        int arr[] = new int[7];
         SecureRandom sr = new SecureRandom();
-        int[] frequency = new int[7];
-        for (int roll = 0; roll <= 6000000; roll++) {
-            ++frequency[sr.nextInt(6)+1];
+        for (int count = 0; count <= 6000000; count++) {
+            ++arr[1 + sr.nextInt(6)];
         }
-        for (int show = 1;show<frequency.length;show++){
-           System.out.println(frequency[show]);
+        for (int count = 1; count < arr.length; count++) {
+            System.out.println(arr[count]);
         }
+
     }
+
 }
 
