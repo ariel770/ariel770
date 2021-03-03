@@ -2,20 +2,23 @@ import java.security.SecureRandom;
 
 public class Main {
     public static void main(String[] args) {
-     double a =10 ;
-     double b =20;
-     double c =30;
-     double d =40;
-     double e =50;
-     addDoubles(a,b,e);
+      if(args.length != 3){
+          System.out.println("YOU NEED ENTER THREE NUMBERS !!! ");
+      }else{
 
-    }
-    public static double addDoubles(double... doubles){
-         double s = 0 ;
-        for(int count =0 ; count < doubles.length;count++  ){
-            s += doubles[count];
-        }
-       System.out.println(s);
-        return s;
+          int arrLength=Integer.parseInt(args[0]);
+          int iteration[] = new int[arrLength];
+
+          int increment = Integer.parseInt(args[1]);
+          int firstValue = Integer.parseInt(args[2]);
+
+          for(int counter= 0 ;counter<iteration.length ; counter++){
+              iteration[counter] =  firstValue+ increment*counter;
+          }
+          for(int counter= 0 ;counter<iteration.length ; counter++){
+             System.out.println(iteration[counter]);
+          }
+
+      }
     }
 }
