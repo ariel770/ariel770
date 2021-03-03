@@ -1,24 +1,21 @@
-import java.security.SecureRandom;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-      if(args.length != 3){
-          System.out.println("YOU NEED ENTER THREE NUMBERS !!! ");
-      }else{
+        double arr[] = {2.2, 3.2, 56.6, 7.3};
+        displayarray(arr);
+        Arrays.sort(arr);
+        displayarray(arr);
+        Arrays.fill(arr , 10);
+        displayarray(arr);
 
-          int arrLength=Integer.parseInt(args[0]);
-          int iteration[] = new int[arrLength];
-
-          int increment = Integer.parseInt(args[1]);
-          int firstValue = Integer.parseInt(args[2]);
-
-          for(int counter= 0 ;counter<iteration.length ; counter++){
-              iteration[counter] =  firstValue+ increment*counter;
-          }
-          for(int counter= 0 ;counter<iteration.length ; counter++){
-             System.out.println(iteration[counter]);
-          }
-
-      }
+    }
+    public static void displayarray(double [] arr){
+        for(int count = 0 ; count<arr.length ;count++)
+        {
+            System.out.print(arr[count] +"  ");
+        }
+        System.out.println();
     }
 }
