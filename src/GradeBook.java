@@ -1,66 +1,65 @@
 import java.security.SecureRandom;
 
 public class GradeBook {
-     private int [] grades ;
-     private String nameOfClass ;
+    private int[][] grades;
+    private String nameOfClass;
 
-    public GradeBook(int[] grades , String nameOfClass){
-       this.grades =grades ;
-       this.nameOfClass=nameOfClass;
+    public GradeBook(int[][] grades, String nameOfClass) {
+        this.grades = grades;
+        this.nameOfClass = nameOfClass;
     }
-    public void getResults (){
-        outputGrades();
-        System.out.println("The maximum grade is : "+ getMaximum());
-        System.out.println("The minimum grade is : "+ getMinimum());
-        System.out.println("The averages of  grades is : "+ getAverage());
-        outputBarChart();
 
-    }
-    public  void outputBarChart (){
-        int frequency [] = new int[10];
-        for(int count =0 ;count < grades.length;count++) {
-            ++frequency[grades[count] / 10];
-
+    public void getResults() {
+        System.out.println("The maximum grade is : " + getMaximum());
+        for(int a = 0 ;a<grades.length; a++){
+                double averageForEach = setAverage(grades[a]);
+                System.out.println("============");
+                System.out.println(averageForEach);
         }
-            for(int first = 0 ; first<frequency.length;first++){
-                for(int second =0 ;second < frequency[first];second++){
-                    System.out.print("*");
-                }
-                System.out.println();
-            }
-
 
     }
-    public void outputGrades (){
+
+    //    public  void outputBarChart (){
+//        int frequency [] = new int[10];
+//        for(int count =0 ;count < grades.length;count++) {
+//            ++frequency[grades[count] / 10];
+//
+//        }
+//            for(int first = 0 ; first<frequency.length;first++){
+//                for(int second =0 ;second < frequency[first];second++){
+//                    System.out.print("*");
+//                }
+//                System.out.println();
+//            }
+//
+//
+//    }
+/*    public void outputGrades (){
         for(int count =0 ;count < grades.length;count++){
             System.out.println("Student : "+ grades[count]);
         }
-    }
-    public int getMaximum(){
-        int initialize = grades[0];
-        for(int count =0 ; count<grades.length ;count++){
-            if(grades[count] > initialize){
-                initialize = grades[count];
+    }*/
+    public int getMaximum() {
+        int initialize = grades[0][0];
+        for (int first = 0; first < grades.length; first++) {
+            for (int count = 0; count < grades[first].length; count++) {
+                if (grades[first][count] > initialize) {
+                    initialize = grades[first][count];
+                }
             }
+
         }
-        return initialize ;
+        return initialize;
     }
-    public int getMinimum(){
-        int initialize = grades[0];
-        for(int count =0 ; count<grades.length ;count++){
-            if(grades[count] < initialize){
-                initialize = grades[count];
-            }
-        }
-        return initialize ;
-    }
-    public int getAverage(){
+
+    public double setAverage(int[] setOfGrades) {
         int initialize = 0;
 
-        for(int count =0 ; count<grades.length ;count++){
-           initialize += grades[count];
+        for (int count = 0; count < setOfGrades.length; count++) {
+            initialize += setOfGrades[count];
         }
-        return initialize / grades.length ;
-    }
+        return (double) initialize/setOfGrades.length  ;
 
+
+    }
 }
