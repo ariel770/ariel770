@@ -2,13 +2,14 @@ import java.security.SecureRandom;
 
 public class Main {
     public static void main(String[] args) {
-       DeckOfCards deckOfCards = new DeckOfCards();
-       deckOfCards.shuffle();
 
-       for(int count = 1 ;count <= 52 ;count++){
-           System.out.println(deckOfCards.dealCard().toString());
+        int [] arr = {12,32,43,5,45,65,656,766,76,67,45,23};
+        int total =0;
+       for(int count : arr){
+          total+= count;
        }
 
+        System.out.println(total);
     }
 
 }
