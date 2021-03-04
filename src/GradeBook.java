@@ -1,4 +1,5 @@
-import java.security.SecureRandom;
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 public class GradeBook {
     private int[][] grades;
@@ -39,6 +40,7 @@ public class GradeBook {
             System.out.println("Student : "+ grades[count]);
         }
     }*/
+
     public int getMaximum() {
         int initialize = grades[0][0];
         for (int first = 0; first < grades.length; first++) {
