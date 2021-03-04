@@ -1,27 +1,16 @@
-import java.util.Date;
-
 public class Main {
     public static void main(String[] args) {
-        DateTime dt = new DateTime(03,23,3);
-       System.out.println(dt.formatedDateTime());
-    }
-}
-class DateTime{
-    private int hour;
-    private int minute;
-    private int seconds;
+        Time2 t1 = new Time2();
+        Time2 t2 = new Time2(3);
+        Time2 t3 = new Time2(3, 4);
+        Time2 t4 = new Time2(23, 1, 5);
+        Time2 t5 = new Time2(t2);
 
-    public DateTime(int hour, int minute, int seconds){
-        this.hour=hour;
-        this.minute=minute;
-        this.seconds= seconds;
-    }
+        System.out.println(t1.toString());
+        System.out.println(t2.toString());
+        System.out.println(t3.toString());
+        System.out.println(t4.toString());
+        System.out.println(t5.toString());
 
-    public String toString() {
-        return String.format("%02d:%02d:%02d ", hour, minute, seconds);
-    }
-
-    public String formatedDateTime() {
-        return  "This is function that is calling in implicit : "+ toString()+" And this is function that is calling in explicit :  "+this.toString();
     }
 }
