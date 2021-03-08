@@ -1,20 +1,13 @@
-public class Main {
+public class Main extends Object {
     public static void main(String[] args) {
-        AnotherClass ac1 = new AnotherClass();
-        System.out.printf("%n%s", ac1.toString());
-        ac1.age = 30;
-        ac1.name = "pinjas";
-        System.out.printf("%n%s", ac1.toString());
+        CommissionEmployee ec = new CommissionEmployee("pir", "rosemberg",
+                "33-333-33", 2.2, 0.1);
+        System.out.printf("%s  ",ec);
+        System.out.println(ec.earnings());
+        BasePlusCommissionEmployee ec1 = new BasePlusCommissionEmployee("pir", "rosemberg",
+                "33-333-33", 2.2, 0.1,5000);
+        System.out.printf("%s  ",ec1);
+        System.out.println(ec1.earnings());
 
-    }
-}
-
-
-class AnotherClass {
-    int age = 0;
-    String name = "hello";
-
-    public String toString() {
-        return String.format("%n%s%n%s", name, age);
     }
 }
