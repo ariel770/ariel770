@@ -1,9 +1,9 @@
 public class CommissionEmployee {
-    private String firstName;
-    private String lastName;
-    private String socialSecurityNumber;
-    private double grossSalary;
-    private double rate;
+    protected String firstName;
+    protected String lastName;
+    protected String socialSecurityNumber;
+    protected double grossSalary;
+    protected double rate;
 
     public CommissionEmployee(String firstName, String lastName, String socialSecurityNumber, double grossSalary, double rate) {
         if (grossSalary <= 0) {

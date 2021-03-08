@@ -17,17 +17,17 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
 
 
     public double earnings() {
-        return (getGrossSalary() * getRate()) + baseSalary;
+        return super.earnings() + baseSalary;
     }
 
     @Override
     public String toString() {
         return "CommissionEmployee{" +
-                "firstName='" + getFirstName() + '\'' +
-                ", lastName='" + getLastName() + '\'' +
-                ", socialSecurityNumber='" +getSocialSecurityNumber() + '\'' +
-                ", grossSalary=" + getGrossSalary() +
-                ", rate=" + getRate()+ " ,earning is : + "+earnings()+
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", socialSecurityNumber='" +socialSecurityNumber + '\'' +
+                ", grossSalary=" + grossSalary +
+                ", rate=" + rate+ " ,earning is : + "+earnings()+
                 '}' ;
     }
 }
