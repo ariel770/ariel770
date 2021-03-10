@@ -53,18 +53,12 @@ public class CommissionEmployee {
     }
 
     public double earnings() {
-
         return rate * grossSalary;
     }
 
     @Override
     public String toString() {
-        return "CommissionEmployee{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", socialSecurityNumber='" + socialSecurityNumber + '\'' +
-                ", grossSalary=" + grossSalary +
-                ", rate=" + rate +
-                '}';
+        return  String.format("%s%n%s%n%s%n%s%n%s%n%s%n",getFirstName(),getLastName(),getSocialSecurityNumber(),getGrossSalary(),getRate(),earnings());
+
     }
 }

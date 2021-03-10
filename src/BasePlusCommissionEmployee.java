@@ -22,12 +22,6 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
 
     @Override
     public String toString() {
-        return "CommissionEmployee{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", socialSecurityNumber='" +socialSecurityNumber + '\'' +
-                ", grossSalary=" + grossSalary +
-                ", rate=" + rate+ " ,earning is : + "+earnings()+
-                '}' ;
+        return String.format("%s%n%s%n%s%n%s%n%s%n%s%n%s",getFirstName(),getLastName(),getSocialSecurityNumber(),getGrossSalary(),getRate(),getBaseSalary(),earnings());
     }
 }
