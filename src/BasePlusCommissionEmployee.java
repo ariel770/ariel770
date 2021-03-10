@@ -2,7 +2,7 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
     private double baseSalary;
 
     public BasePlusCommissionEmployee(String lastName, String firstName, String socialSecurityNumber,
-                                      double grossSalary, double rate , double baseSalary) {
+                                      double grossSalary, double rate, double baseSalary) {
         super(firstName, lastName, socialSecurityNumber, grossSalary, rate);
         this.baseSalary = baseSalary;
     }
@@ -15,13 +15,16 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
         this.baseSalary = baseSalary;
     }
 
-
-    public double earnings() {
-        return super.earnings() + baseSalary;
+    @Override
+    public double earning() {
+        return super.earning() + getBaseSalary();
     }
 
     @Override
     public String toString() {
-        return String.format("%s%n%s%n%s%n%s%n%s%n%s%n%s",getFirstName(),getLastName(),getSocialSecurityNumber(),getGrossSalary(),getRate(),getBaseSalary(),earnings());
+        return String.format("%n toString from employee interface : " +
+                        " %s%n  the new  earning from  basePlusCommissionEmployee : " +
+                        "%s the  base salary is : "
+                , super.toString(), earning(),getBaseSalary());
     }
 }
