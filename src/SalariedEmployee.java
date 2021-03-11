@@ -20,13 +20,14 @@ public class SalariedEmployee extends Employee {
         this.weeklySalary = weeklySalary;
     }
 
-    @Override
-    public double earning() {
-        return getWeeklySalary();
-    }
 
     @Override
     public String toString() {
         return String.format("%n toString from employee interface :  %s%n  earning from saleried employee :  %s", super.toString(),getWeeklySalary());
+    }
+
+    @Override
+    public double getPay() {
+        return getWeeklySalary();
     }
 }

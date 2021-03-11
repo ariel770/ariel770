@@ -42,13 +42,13 @@ public class CommissionEmployee extends Employee {
 
 
     @Override
-    public double earning() {
-        return getGrossSalary() * getRate();
+    public String toString() {
+        return String.format("%n toString from employee interface :  %s%n  earning from commission salary employee :  %s%n  rate from commission salary employee :  %s%n  gross salary from commission salary employee :  %s", super.toString(), getPay(), getRate(), getGrossSalary());
+
     }
 
     @Override
-    public String toString() {
-        return String.format("%n toString from employee interface :  %s%n  earning from commission salary employee :  %s%n  rate from commission salary employee :  %s%n  gross salary from commission salary employee :  %s", super.toString(), earning(),getRate(),getGrossSalary());
-
+    public double getPay() {
+        return getGrossSalary() * getRate();
     }
 }

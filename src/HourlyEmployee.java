@@ -39,17 +39,17 @@ public class HourlyEmployee extends Employee {
 
 
     @Override
-    public double earning() {
-        if (getHours() <= 40) {
+    public String toString() {
+        return String.format("%n toString from employee interface :  %s%n  earning from hourly employee :  " +
+                "%s%n wage from hourly employee :  %s%n hours from hourly employee :  %s", super.toString(), getPay(),getWage(),getHours());
+    }
+
+    @Override
+    public double getPay() {
+         if (getHours() <= 40) {
             return getHours() * getWage();
         } else {
             return 40 * getWage() + (getHours() - 40) * getWage()*1.5;
         }
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%n toString from employee interface :  %s%n  earning from hourly employee :  " +
-                "%s%n wage from hourly employee :  %s%n hours from hourly employee :  %s", super.toString(), earning(),getWage(),getHours());
     }
 }

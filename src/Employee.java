@@ -1,8 +1,8 @@
 
-public abstract class Employee {
-    private String firstName;
-    private String lastName;
-    private String socialSecurityNumber;
+public abstract class Employee implements Payable{
+    private final String firstName;
+    private final String lastName;
+    private final String socialSecurityNumber;
 
     public Employee(String firstName, String lastName, String socialSecurityNumber) {
         this.lastName = lastName;
@@ -26,8 +26,6 @@ public abstract class Employee {
     public String toString() {
         return String.format("%s %s %n The social security number :  %s", getFirstName(), getLastName(), getSocialSecurityNumber());
     }
-
-    public abstract double earning();
 
 }
 
