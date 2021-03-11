@@ -1,14 +1,33 @@
+import java.util.Scanner;
+
 public class Main extends Object {
     public static void main(String[] args) {
-     Payable [] payables =new Payable[4];
-     payables[0]= new Invoice("car","33-22-33",120.000,1);
-     payables[1]= new Invoice("bus","11-22-11",100.000,1);
-     payables[2]= new SalariedEmployee("pinjas","yaakov","11-11-11",23.3);
-     payables[3]= new CommissionEmployee("ari","blum","456789",4.0,0.6);
-     for(Payable payable : payables){
-         System.out.println(payable);
-         System.out.println();
-         System.out.println();
-     }
+
+
+        Scanner scanner = new Scanner(System.in);
+       boolean conitnueLoop = true;
+        do {
+            try {
+            System.out.print("Enter numerator : ");
+            int a = scanner.nextInt();
+
+            System.out.print("Enter denomirator : ");
+            int b = scanner.nextInt();
+            int result = sum(a, b);
+            conitnueLoop = false;
+            System.out.println(result);
+            } catch (Exception e){
+                scanner.nextLine();
+                System.out.println(e.getMessage());
+            }
+        } while (conitnueLoop);
+
+
+    }
+
+    public static int sum(int numerator, int denominator) {
+
+        return numerator / denominator;
     }
 }
+

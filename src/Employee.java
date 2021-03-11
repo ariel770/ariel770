@@ -10,6 +10,7 @@ public abstract class Employee implements Payable{
         this.socialSecurityNumber = socialSecurityNumber;
     }
 
+
     public String getLastName() {
         return lastName;
     }
