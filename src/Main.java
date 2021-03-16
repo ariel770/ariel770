@@ -1,54 +1,49 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Formatter;
 import java.util.FormatterClosedException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main extends Object {
-    private static Formatter output;
+    private static Scanner input;
 
     public static void main(String[] args) throws IOException {
         openFile();
-        addRecords();
+        readRecords();
         closeFile();
     }
 
     public static void openFile() {
         try {
-            output = new Formatter("./src/text.txt");
-        } catch (SecurityException e) {
-            System.out.println("Program is terminating " + e.getMessage());
-            System.exit(1);
-        } catch (FileNotFoundException e) {
+            input = new Scanner(Paths.get("./src/text.txt"));
+        } catch (IOException e) {
             System.out.println("Program is terminating " + e.getMessage());
             System.exit(1);
         }
 
     }
 
-    public static void addRecords() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter please number , firstname ,lastname ,deposit : ");
-        while (scanner.hasNext()) {
+    public static void readRecords() {
+        while (input.hasNext()) {
             try {
-                output.format("%d %s %s %.2f%n", scanner.nextInt(), scanner.next(),
-                        scanner.next(), scanner.nextDouble());
+                System.out.printf("%d %s %s %.2f%n", input.nextInt(), input.next(),
+                        input.next(), input.nextDouble());
             } catch (FormatterClosedException e) {
                 System.out.println(e.getMessage());
                 break;
             } catch (NoSuchElementException e) {
                 System.out.println("NoSuchElementException , Please try again :");
-                scanner.nextLine();
+                input.nextLine();
             }
-            System.out.print("?");
         }
 
     }
 
     public static void closeFile() {
-        if (output != null) {
-            output.close();
+        if (input != null) {
+            input.close();
         }
 
 
