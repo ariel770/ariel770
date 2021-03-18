@@ -1,1 +1,2 @@
-100 pir po -23.00
+1 pinjas rose -2
+2 pinjas eee 2
