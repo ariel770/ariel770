@@ -41,7 +41,7 @@ public class Time2 {
     }
 
     public String toString() {
-        return String.format("%02d:%02d:%02d ", getHour(), getMinute(), getSeconds());
+        return String.format("%d:%02d:%02d %s", ((getHour() == 12 || getHour() == 0) ? 12 : getHour() % 12), getMinute(),getSeconds(), (getHour() < 12) ? "AM" : "PM");
 
     }
 }
