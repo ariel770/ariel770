@@ -6,7 +6,7 @@ public class Main {
         String colors[] = {"RED", "YELLOW", "BLACK", "BLUE", "WHITE"};
        List <String> b = new LinkedList<>(Arrays.asList(colors));
        List <String> a = Arrays.asList(colors);
-       Collections.sort(a);
+       Collections.sort(a ,Collections.reverseOrder());
        System.out.println(a);
        System.out.println(b);
 
