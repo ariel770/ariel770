@@ -1,82 +1,48 @@
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Scanner;
 
 public class Main extends Object {
+private static  ObjectOutputStream output ;
+    public static void main(String[] args) throws IOException {
+     openFile();
+     writeFile();
+     closeFile();
 
-        private static MenuOption[] choices = MenuOption.values();
-
-    public static void main(String[] args) {
-
- MenuOption accountType = getRequest();
-        while (accountType != MenuOption.END) {
-            switch (accountType) {
-                case ZERO_BALANCE:
-                    System.out.printf("%n Account with zero balance %n");
-                    break;
-                case DEBIT_BALANCE:
-                    System.out.printf("%n Account with debit balance %n");
-                    break;
-                case CREDIT_BALANCE:
-                    System.out.printf("%n Account with credit balance %n");
-                    break;
-            }
-            readRecords(accountType);
-            accountType = getRequest();
-        }
     }
 
-    public static MenuOption getRequest() {
-        int request = 4;
+    public static void  openFile(){
         try {
-
-            Scanner input = new Scanner(System.in);
-            do {
-                System.out.printf("%n ? ");
-                request = input.nextInt();
-            } while ((request < 0) || (request > 4));
-        } catch (NoSuchElementException noSuchElementException) {
-            System.out.println("error");
+            output = new ObjectOutputStream(Files.newOutputStream(Paths.get("./src/text.txt")));
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("error to create output stream");
         }
-        return choices[request - 1];
+
     }
 
-    private static void readRecords(MenuOption accountType) {
-        try (Scanner scanner = new Scanner(Paths.get("./src/text.txt"))) {
-            while (scanner.hasNext()) {
-                int accountNumber = scanner.nextInt();
-                String firstName = scanner.next();
-                String lastName = scanner.next();
-                int balance = scanner.nextInt();
-                if (shuldDisplay(balance, accountType)) {
-                    System.out.print(accountNumber +" ");
-                    System.out.print(firstName+ " ");
-                    System.out.print(lastName+" ");
-                    System.out.print(balance +" ");
-                } else {
-                    scanner.nextLine();
-                }
+    public static void writeFile() {
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()){
 
+            AccountToSerializable records  = new AccountToSerializable(scanner.nextInt(),
+                    scanner.next(),scanner.next(),scanner.nextInt());
+            try {
+                output.writeObject(records);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
-        } catch (NoSuchElementException | IllegalStateException | IOException e) {
-            System.out.println(e.getMessage());
-            System.exit(1);
         }
 
     }
 
-    private static boolean shuldDisplay(double balance, MenuOption accountType) {
-        if ((accountType == MenuOption.CREDIT_BALANCE) && (balance < 0)) {
-            return true;
-        } else if ((accountType == MenuOption.DEBIT_BALANCE) && (balance > 0)) {
-            return true;
-        } else if ((accountType == MenuOption.ZERO_BALANCE) && (balance == 0)) {
-            return true;
-        }
-        return false;
-    }
+    public static void closeFile() throws IOException {
 
+    if(output != null){
+        output.close();
+    }
+    }
 }
 
