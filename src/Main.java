@@ -5,13 +5,13 @@ public class Main {
     public static void main(String[] args) {
         String a[] = {"red", "blue", "green", "black","green"};
         List<String> stringList = new ArrayList<>(Arrays.asList(a));
-        System.out.println(stringList);
-        serachInSet(stringList);
+        serachIntTreeSet(stringList);
 
     }
 
-    private static void serachInSet(Collection<String> stringList) {
-        Set<String> set = new HashSet<>(stringList);
+    private static void serachIntTreeSet(Collection<String> stringList) {
+        SortedSet<String> set = new TreeSet<>(stringList);
+
         System.out.println(set);
     }
 }
