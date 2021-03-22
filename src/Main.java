@@ -3,27 +3,16 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        String a[] = {"red", "blue", "green", "black"};
+        String a[] = {"red", "blue", "green", "black","green"};
         List<String> stringList = new ArrayList<>(Arrays.asList(a));
-        Collections.sort(stringList);
-        for (int count = 0; count < stringList.size(); count++) {
-            System.out.println(stringList.get(count));
-        }
-        searchIndex(stringList, "red");
-        searchIndex(stringList, "green");
-        searchIndex(stringList, "yellow");
+        System.out.println(stringList);
+        serachInSet(stringList);
 
     }
 
-    public static void searchIndex(List<String> list, String key) {
-
-        int result = 0;
-        result = Collections.binarySearch(list, key);
-        if (result >= 0) {
-            System.out.println(key + " : " + result);
-        } else {
-            System.out.println(" not found " + key + "  : " + result);
-        }
+    private static void serachInSet(Collection<String> stringList) {
+        Set<String> set = new HashSet<>(stringList);
+        System.out.println(set);
     }
 }
 
