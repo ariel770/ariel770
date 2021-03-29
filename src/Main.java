@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Main {
@@ -15,10 +18,25 @@ public class Main {
         // lesson reduce() instead max(); min(); etc
         System.out.printf("Sum is : %d%n", IntStream.of(values).reduce(0, ((x, y) -> x + y)));
         // lesson #intermidate opertaions and terminal operations
-        IntStream.of(values).filter(value -> value%2 == 0 ).sorted().forEach(value -> System.out.print(" "+value));
+        IntStream.of(values).filter(value -> value % 2 == 0).sorted().forEach(value -> System.out.print(" " + value));
         System.out.println();
         // lesson #intermidate opertaions -map()
-        IntStream.of(values).filter(value -> value%2 != 0 ).map(value -> value * 10).sorted().forEach(value -> System.out.print(" "+value));
-    }
+        IntStream.of(values).filter(value -> value % 2 != 0).map(value -> value * 10).sorted().forEach(value -> System.out.print(" " + value));
+        // lesson #intermidate opertaions -range()
+        System.out.println();
+        IntStream.range(3, 12).forEach(value -> System.out.print(" " + value));
+        //lesson #Integer manipulations
+        Integer[] integers = {3, 2, 5, 7, 1, 8, 9, 4, 6, 10};
+        System.out.println();
+        System.out.println(Arrays.asList(integers));
+        System.out.println("=============");
+        Arrays.stream(integers).sorted().forEach(value -> System.out.print(" "+value));
+        System.out.printf("%s ",Arrays.stream(integers).sorted().collect(Collectors.toList()));
+        System.out.println("=============");
+        System.out.printf("%s%n",
+                Arrays.stream(integers).sorted().collect(Collectors.toList()));
+        List<Integer> integerList = Arrays.stream(integers).filter(vv -> vv> 4).sorted().collect(Collectors.toList());
+        System.out.println(integerList);
+     }
 }
 
