@@ -14,7 +14,8 @@ public class Main {
         System.out.printf("Avg is : %.2f%n", IntStream.of(values).average().getAsDouble());
         // lesson reduce() instead max(); min(); etc
         System.out.printf("Sum is : %d%n", IntStream.of(values).reduce(0, ((x, y) -> x + y)));
-
+        // lesson #intermidate opertaions and terminal operations
+       IntStream.of(values).filter(value -> value%2 == 0 ).sorted().forEach(value -> System.out.print(" "+value));
     }
 }
 
