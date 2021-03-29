@@ -15,7 +15,10 @@ public class Main {
         // lesson reduce() instead max(); min(); etc
         System.out.printf("Sum is : %d%n", IntStream.of(values).reduce(0, ((x, y) -> x + y)));
         // lesson #intermidate opertaions and terminal operations
-       IntStream.of(values).filter(value -> value%2 == 0 ).sorted().forEach(value -> System.out.print(" "+value));
+        IntStream.of(values).filter(value -> value%2 == 0 ).sorted().forEach(value -> System.out.print(" "+value));
+        System.out.println();
+        // lesson #intermidate opertaions -map()
+        IntStream.of(values).filter(value -> value%2 != 0 ).map(value -> value * 10).sorted().forEach(value -> System.out.print(" "+value));
     }
 }
 
