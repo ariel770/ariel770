@@ -1,35 +1,20 @@
-import java.util.*;
+import java.util.stream.IntStream;
 
 public class Main {
 
     public static void main(String[] args) {
-        Map<String, Integer> stringMap = new HashMap<String, Integer>();
-        createMap(stringMap);
-        displayMap(stringMap);
+        int[] values = {1, 4, 3, 6, 78, 3, 12, 2, 4, 6, 8};
+        //lesson #IntStream - lambdas -int consumer
+        IntStream.of(values).forEach(value -> System.out.printf("%d ", value));
+        System.out.println();
+        System.out.printf("Sum is : %d%n", IntStream.of(values).sum());
+        System.out.printf("Count is : %d%n", IntStream.of(values).count());
+        System.out.printf("Max is : %d%n", IntStream.of(values).max().getAsInt());
+        System.out.printf("Min is : %d%n", IntStream.of(values).min().getAsInt());
+        System.out.printf("Avg is : %.2f%n", IntStream.of(values).average().getAsDouble());
+        // lesson reduce() instead max(); min(); etc
+        System.out.printf("Sum is : %d%n", IntStream.of(values).reduce(0, ((x, y) -> x + y)));
+
     }
-
-    private static void createMap(Map<String, Integer> stringMap) {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter words : ");
-        String line = input.nextLine();
-        String[] words = line.split(" ");
-
-        for (String word : words) {
-            String newWord = word.toLowerCase();
-            if (stringMap.containsKey(newWord)) {
-                int count = stringMap.get(newWord);
-                stringMap.put(newWord, count + 1);
-            } else {
-                stringMap.put(newWord, 1);
-            }
-        }
-    }
-
-    private static void displayMap(Map<String, Integer> stringMap) {
-        Set <String> keys = stringMap.keySet();
-        TreeSet <String> treeSet = new TreeSet<>(keys);
-       for (String tree : treeSet)
-        System.out.printf("%s %s %n",tree ,stringMap.get(tree) );
-      }
 }
 
