@@ -30,13 +30,21 @@ public class Main {
         System.out.println();
         System.out.println(Arrays.asList(integers));
         System.out.println("=============");
-        Arrays.stream(integers).sorted().forEach(value -> System.out.print(" "+value));
-        System.out.printf("%s ",Arrays.stream(integers).sorted().collect(Collectors.toList()));
+        Arrays.stream(integers).sorted().forEach(value -> System.out.print(" " + value));
+        System.out.printf("%s ", Arrays.stream(integers).sorted().collect(Collectors.toList()));
         System.out.println("=============");
         System.out.printf("%s%n",
                 Arrays.stream(integers).sorted().collect(Collectors.toList()));
-        List<Integer> integerList = Arrays.stream(integers).filter(vv -> vv> 4).sorted().collect(Collectors.toList());
+        List<Integer> integerList = Arrays.stream(integers).filter(vv -> vv > 4).sorted().collect(Collectors.toList());
         System.out.println(integerList);
-     }
+
+        String[] strings = {"pinjas", "ariel", "Rosemberg", "shterna ", "Newman"};
+        System.out.println(Arrays.asList(strings));
+        System.out.printf("%s  ", Arrays.stream(strings).map(String::toUpperCase).sorted().collect(Collectors.toList()));
+        System.out.println();
+        System.out.printf("%s  ", Arrays.stream(strings).map(String::toUpperCase).filter(s -> s.compareToIgnoreCase("m") < 0).collect(Collectors.toList()));
+        System.out.println();
+        System.out.printf("%s  ", Arrays.stream(strings).map(String::toUpperCase).sorted(String.CASE_INSENSITIVE_ORDER.reversed()).collect(Collectors.toList()));
+    }
 }
 
