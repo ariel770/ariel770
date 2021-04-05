@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.security.SecureRandom;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -132,6 +133,12 @@ public class Main {
                                     .forEach(word -> System.out.printf("%13s : %d%n", word.getKey(), word.getValue()));
                         }
                 );
+        SecureRandom sr = new SecureRandom();
+        sr.ints(6_000_000,1,7)
+                .boxed().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
+                .forEach((face, frequency)-> System.out.printf("%-6d%d%n",face,frequency) );
+
+
     }
 
 }
