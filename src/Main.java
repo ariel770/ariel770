@@ -1,54 +1,73 @@
-import java.util.Stack;
-
+import java.util.EmptyStackException;
+//import java.util.Stack ;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.printf("%n maximum in integers %n %s",
-        maximum(1, 2, 3));
-        System.out.printf("%n maximum in doubles %n %s",
-                maximum(1.1, 2.2, 3.3));
-        System.out.printf("%n maximum in characters %n %s",
-                maximum('a', 'b', 'c'));
+        Double[] arrayDoubles = {1.1, 2.2, 3.3, 4.4};
+        Integer[] arrayInteger = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+        Stack <Double> doubleStack = new Stack<>();
+        Stack <Integer> integerStack = new Stack<>();
+        pushDoubleToStack(doubleStack, arrayDoubles);
+        pushIntegerToStack(integerStack, arrayInteger);
+        getIntegerFromStack(integerStack);
+        getDoubleFromStack(doubleStack);
+
 
     }
 
+    private static void getIntegerFromStack(Stack<Integer> integerStack) {
+        try {
+            System.out.printf("%n Getting elements from integerStack %n ");
+            Integer integerValue;
+            while (true) {
+                integerValue = integerStack.pop();
+                System.out.printf("%d ", integerValue);
 
-//    //overloaded methods
-//    public static void printArray(Integer[] array) {
-//        for (Integer ints : array)
-//            System.out.printf("%s ", ints);
-//        System.out.println();
-//    }
-//
-//    public static void printArray(Double[] array) {
-//        for (Double doubles : array)
-//            System.out.printf("%s ", doubles);
-//        System.out.println();
-//    }
-//
-//    public static void printArray(Character[] array) {
-//        for (int a = 0; a < array.length; a++) {
-//            System.out.print(array[a] + " ");
-//        }
-//    }
+            }
+        } catch (EmptyStackException e) {
 
-    //generic methods
-//    public static <T> void printArray(T [] array) {
-//        for(T arr :  array)
-//            System.out.printf("%s ",arr);
-//
-//        System.out.println();
-//
-//    }
-    public static <T extends Comparable<T>> T maximum(T a, T b, T c) {
-        T max = a;
-        if (b.compareTo(max) > 0)
-            max = b;
-        if (c.compareTo(max) > 0)
-            max = c;
-        return max;
+            System.out.println();
+            e.printStackTrace();
+
+        }
+
     }
 
+    private static void getDoubleFromStack(Stack<Double> doubleStack) {
+        try {
+            System.out.printf("%n Getting elements from doubleStack %n ");
+            Double doubleValue;
+            while (true) {
+                doubleValue = doubleStack.pop();
+                System.out.printf("%.1f ", doubleValue);
+            }
+        } catch (EmptyStackException e) {
+
+            System.out.println();
+            e.printStackTrace();
+
+        }
+    }
+
+
+    private static void pushDoubleToStack(Stack<Double> doubleStack, Double[] arrayDoubles) {
+        System.out.printf("%n Pushing elements onto stack %n ");
+        for (Double number : arrayDoubles) {
+            System.out.printf("%.1f ", number);
+            doubleStack.push(number);
+        }
+
+    }
+
+    private static void pushIntegerToStack(Stack<Integer> integerStack, Integer[] arrayInteger) {
+        System.out.printf("%n Pushing elements onto stack %n ");
+        for (Integer number : arrayInteger) {
+            System.out.printf("%d ", number);
+            integerStack.push(number);
+        }
+
+    }
 
 }
 
