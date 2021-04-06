@@ -1,48 +1,31 @@
-import java.util.EmptyStackException;
+import java.util.ArrayList;
 
-//import java.util.Stack ;
 public class Main {
 
     public static void main(String[] args) {
-        Double[] arrayDoubles = {1.1, 2.2, 3.3, 4.4};
-        Integer[] arrayInteger = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        Number[] numbers = {2, 3.4, 5, 4.5, 3, 2.2};
+        Integer[] integers = {2,  5, 3};
+        ArrayList<Integer> integerArrayList = new ArrayList<>();
+        ArrayList<Number> numberArrayList = new ArrayList<>();
+        for (Number number : numbers) {
+            numberArrayList.add(number);
+        }
+        for (Integer integer : integers) {
+            integerArrayList.add(integer);
+        }
 
-        Stack<Double> doubleStack = new Stack<>();
-        Stack<Integer> integerStack = new Stack<>();
-        pushToStack("push double ", doubleStack, arrayDoubles);
-        pushToStack("push integer", integerStack, arrayInteger);
-        getFromStack("get integer ", integerStack);
-        getFromStack("get double  ", doubleStack);
 
+        sum(numberArrayList);
+        sum(integerArrayList);
 
     }
 
-    private static <T> void getFromStack(String name, Stack<T> value) {
-        try {
-            System.out.printf("%n Getting elements from %s %n ",name);
-            T tValue;
-            while (true) {
-                tValue = value.pop();
-                System.out.printf("%s ", tValue);
-
-            }
-        } catch (EmptyStackException e) {
-
-            System.out.println();
-            e.printStackTrace();
-
+    private static void sum(ArrayList<? extends Number > list) {
+        double numbers = 0;
+        for (Number number : list) {
+            numbers += number.doubleValue();
         }
-
-    }
-
-
-    private static <T> void pushToStack(String name ,Stack<T> integerStack, T[] tArray) {
-        System.out.printf("%n Pushing elements onto stack %s%n ",name);
-        for (T number : tArray) {
-            System.out.printf("%s ", number);
-            integerStack.push(number);
-        }
-
+        System.out.printf("%n %s %n",numbers);
     }
 
 }
