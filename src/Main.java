@@ -1,4 +1,5 @@
 import java.util.EmptyStackException;
+
 //import java.util.Stack ;
 public class Main {
 
@@ -6,23 +7,23 @@ public class Main {
         Double[] arrayDoubles = {1.1, 2.2, 3.3, 4.4};
         Integer[] arrayInteger = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-        Stack <Double> doubleStack = new Stack<>();
-        Stack <Integer> integerStack = new Stack<>();
-        pushDoubleToStack(doubleStack, arrayDoubles);
-        pushIntegerToStack(integerStack, arrayInteger);
-        getIntegerFromStack(integerStack);
-        getDoubleFromStack(doubleStack);
+        Stack<Double> doubleStack = new Stack<>();
+        Stack<Integer> integerStack = new Stack<>();
+        pushToStack("push double ", doubleStack, arrayDoubles);
+        pushToStack("push integer", integerStack, arrayInteger);
+        getFromStack("get integer ", integerStack);
+        getFromStack("get double  ", doubleStack);
 
 
     }
 
-    private static void getIntegerFromStack(Stack<Integer> integerStack) {
+    private static <T> void getFromStack(String name, Stack<T> value) {
         try {
-            System.out.printf("%n Getting elements from integerStack %n ");
-            Integer integerValue;
+            System.out.printf("%n Getting elements from %s %n ",name);
+            T tValue;
             while (true) {
-                integerValue = integerStack.pop();
-                System.out.printf("%d ", integerValue);
+                tValue = value.pop();
+                System.out.printf("%s ", tValue);
 
             }
         } catch (EmptyStackException e) {
@@ -34,36 +35,11 @@ public class Main {
 
     }
 
-    private static void getDoubleFromStack(Stack<Double> doubleStack) {
-        try {
-            System.out.printf("%n Getting elements from doubleStack %n ");
-            Double doubleValue;
-            while (true) {
-                doubleValue = doubleStack.pop();
-                System.out.printf("%.1f ", doubleValue);
-            }
-        } catch (EmptyStackException e) {
 
-            System.out.println();
-            e.printStackTrace();
-
-        }
-    }
-
-
-    private static void pushDoubleToStack(Stack<Double> doubleStack, Double[] arrayDoubles) {
-        System.out.printf("%n Pushing elements onto stack %n ");
-        for (Double number : arrayDoubles) {
-            System.out.printf("%.1f ", number);
-            doubleStack.push(number);
-        }
-
-    }
-
-    private static void pushIntegerToStack(Stack<Integer> integerStack, Integer[] arrayInteger) {
-        System.out.printf("%n Pushing elements onto stack %n ");
-        for (Integer number : arrayInteger) {
-            System.out.printf("%d ", number);
+    private static <T> void pushToStack(String name ,Stack<T> integerStack, T[] tArray) {
+        System.out.printf("%n Pushing elements onto stack %s%n ",name);
+        for (T number : tArray) {
+            System.out.printf("%s ", number);
             integerStack.push(number);
         }
 
