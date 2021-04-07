@@ -10,7 +10,7 @@ public class SimpleArrayThread {
         array = new int[size];
     }
 
-    public synchronized void  add(int value) {
+    public synchronized    void add(int value) {
         int position = writeIndex;
         try {
             Thread.sleep(secureRandom.nextInt(5000));
@@ -20,7 +20,8 @@ public class SimpleArrayThread {
         }
         array[position] = value;
         ++writeIndex;
-        System.out.printf("%n %s add value %d to position %d %n the next position is %d%n " ,Thread.currentThread().getName() ,value,position,writeIndex);
+        System.out.printf("%n %s add value %d to position %d %n the next position is %d%n ",
+                Thread.currentThread().getName(), value, position, writeIndex);
 
     }
 
