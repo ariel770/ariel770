@@ -25,7 +25,7 @@ public class Main {
         for (Number number : list) {
             numbers += number.doubleValue();
         }
-        System.out.printf("%n %s %n",numbers);
+        System.out.printf("%n%s%n",numbers);
     }
 
 }
