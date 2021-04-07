@@ -1,31 +1,19 @@
-import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main {
 
     public static void main(String[] args) {
-        Number[] numbers = {2, 3.4, 5, 4.5, 3, 2.2};
-        Integer[] integers = {2,  5, 3};
-        ArrayList<Integer> integerArrayList = new ArrayList<>();
-        ArrayList<Number> numberArrayList = new ArrayList<>();
-        for (Number number : numbers) {
-            numberArrayList.add(number);
-        }
-        for (Integer integer : integers) {
-            integerArrayList.add(integer);
-        }
-
-
-        sum(numberArrayList);
-        sum(integerArrayList);
-
-    }
-
-    private static void sum(ArrayList<? extends Number > list) {
-        double numbers = 0;
-        for (Number number : list) {
-            numbers += number.doubleValue();
-        }
-        System.out.printf("%n%s%n",numbers);
+        PrintTaskThread task1 = new PrintTaskThread("task1");
+        PrintTaskThread task2 = new PrintTaskThread("task2");
+        PrintTaskThread task3 = new PrintTaskThread("task3");
+        System.out.println(" Starting Executors : ");
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        executorService.execute(task1);
+        executorService.execute(task2);
+        executorService.execute(task3);
+        executorService.shutdown();
+        System.out.println("The Main thread was terminated ");
     }
 
 }
